@@ -73,26 +73,26 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
                         selectedCategory.callBack(newIndex, listProducts);
                     } else if(row_index == 1) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.burger1, "Pizza 5", "10h-20h", "4", "price: 10$"));
-                        listProducts.add(new HomeProductModel(R.drawable.burger2, "Pizza 6", "10h-20h", "3", "price: 20$"));
-                        listProducts.add(new HomeProductModel(R.drawable.burger4, "Pizza 7", "10h-20h", "2", "price: 30$"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger1, "burger1", "10h-20h", "4", "price: 10$"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger2, "burger2", "10h-20h", "3", "price: 20$"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger4, "burger4", "10h-20h", "2", "price: 30$"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     } else if(row_index == 2) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.fries1, "Pizza 1", "10h-20h", "4", "price: 10$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries2, "Pizza 21", "10h-20h", "3", "price: 20$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries3, "Pizza 33", "10h-20h", "2", "price: 30$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries4, "Pizza 4", "10h-20h", "2", "price: 40$"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries1, "fries1 1", "10h-20h", "4", "price: 10$"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries2, "fries2 21", "10h-20h", "3", "price: 20$"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries3, "fries3 33", "10h-20h", "2", "price: 30$"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries4, "fries4 4", "10h-20h", "2", "price: 40$"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }
                     else if(row_index == 3) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.fries1, "Pizza 1123", "10h-20h", "4", "price: 10$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries2, "Pizza 2", "10h-20h", "3", "price: 20$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries3, "Pizza 332", "10h-20h", "2", "price: 30$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries4, "Pizza 4", "10h-20h", "2", "price: 40$"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich1, "sandwich1", "10h-20h", "4", "price: 10$"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich2, "sandwich2 ", "10h-20h", "3", "price: 20$"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich3, "sandwich3 ", "10h-20h", "2", "price: 30$"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich4, "sandwich4 ", "10h-20h", "2", "price: 40$"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }
@@ -101,12 +101,12 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
             if(selected) {
                 if(position == 0) {
-                    holder.cardView.setBackgroundResource(R.drawable.foreground_design);
+                    holder.cardView.setBackgroundResource(R.drawable.change_bg);
                     selected = false;
                 }
             }else {
                 if(row_index == position) {
-                    holder.cardView.setBackgroundResource(R.drawable.foreground_design);
+                    holder.cardView.setBackgroundResource(R.drawable.change_bg);
                 }else {
                     holder.cardView.setBackgroundResource(R.drawable.dynamic_rv_bg);
                 }

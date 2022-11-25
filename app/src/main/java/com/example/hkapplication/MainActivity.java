@@ -3,6 +3,7 @@ package com.example.hkapplication;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.hkapplication.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
+    TextView text_name;
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
