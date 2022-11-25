@@ -89,10 +89,19 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
                     }
                     else if(row_index == 3) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.sandwich1, "sandwich1", "10h-20h", "4", "price: 10$"));
-                        listProducts.add(new HomeProductModel(R.drawable.sandwich2, "sandwich2 ", "10h-20h", "3", "price: 20$"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream2, "icecream2", "10h-20h", "4", "price: 11$"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream1, "icecream1 ", "10h-20h", "3", "price: 21$"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream3, "icecream3 ", "10h-20h", "2", "price: 35$"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream4, "icecream4 ", "10h-20h", "2", "price: 6$"));
+
+                        selectedCategory.callBack(newIndex, listProducts);
+                    }
+                    else if(row_index == 4) {
+                        ArrayList<HomeProductModel> listProducts = new ArrayList<>();
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich1, "sandwich1", "10h-20h", "4", "price: 8$"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich2, "sandwich2 ", "10h-20h", "3", "price: 6$"));
                         listProducts.add(new HomeProductModel(R.drawable.sandwich3, "sandwich3 ", "10h-20h", "2", "price: 30$"));
-                        listProducts.add(new HomeProductModel(R.drawable.sandwich4, "sandwich4 ", "10h-20h", "2", "price: 40$"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich4, "sandwich4 ", "10h-20h", "2", "price: 12$"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }
