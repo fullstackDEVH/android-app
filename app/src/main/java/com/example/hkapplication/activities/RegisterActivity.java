@@ -77,11 +77,10 @@ public class RegisterActivity extends AppCompatActivity {
                            String id = task.getResult().getUser().getUid();
 
                            database.getReference().child("User").child(id).setValue(userModel);
-//                           progress.setVisibility(View.GONE);
 
-                           Toast.makeText(RegisterActivity.this, "Create Successfully !!!", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(RegisterActivity.this, "Create Successfully, redirect to login !!!", Toast.LENGTH_SHORT).show();
+                           startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                        }else {
-//                           progress.setVisibility(View.GONE);
                            Toast.makeText(RegisterActivity.this, "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
                        }
                    }

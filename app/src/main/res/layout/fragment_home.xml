@@ -44,7 +44,7 @@
             app:layout_constraintVertical_bias="0.068" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/textView_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
@@ -65,7 +65,7 @@
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintTop_toBottomOf="@+id/textView_user" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_recycle"

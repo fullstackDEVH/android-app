@@ -47,10 +47,10 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         int newIndex= position;
         if(check) {
             ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-            listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 1", "10h-20h", "4", "price: 10$"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "price: 20$"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "price: 30$"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "price: 40$"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 1", "10h-20h", "4", "price: 10"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "price: 20"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "price: 30"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "price: 40"));
 
             selectedCategory.callBack(position, listProducts);
             check = false;
@@ -65,43 +65,43 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
                     if (row_index == 0) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 12", "10h-20h", "4", "price: 10$"));
-                        listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "price: 20$"));
-                        listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "price: 30$"));
-                        listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "price: 40$"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 12", "10h-20h", "4", "10"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "30"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "40"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     } else if(row_index == 1) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.burger1, "burger1", "10h-20h", "4", "price: 10$"));
-                        listProducts.add(new HomeProductModel(R.drawable.burger2, "burger2", "10h-20h", "3", "price: 20$"));
-                        listProducts.add(new HomeProductModel(R.drawable.burger4, "burger4", "10h-20h", "2", "price: 30$"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger1, "burger1", "10h-20h", "4", "10"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger2, "burger2", "10h-20h", "3", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger4, "burger4", "10h-20h", "2", "30"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     } else if(row_index == 2) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.fries1, "fries1 1", "10h-20h", "4", "price: 10$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries2, "fries2 21", "10h-20h", "3", "price: 20$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries3, "fries3 33", "10h-20h", "2", "price: 30$"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries4, "fries4 4", "10h-20h", "2", "price: 40$"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries1, "fries1 1", "10h-20h", "4", "10"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries2, "fries2 21", "10h-20h", "3", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries3, "fries3 33", "10h-20h", "2", "30"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries4, "fries4 4", "10h-20h", "2", "40"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }
                     else if(row_index == 3) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.icecream2, "icecream2", "10h-20h", "4", "price: 11$"));
-                        listProducts.add(new HomeProductModel(R.drawable.icecream1, "icecream1 ", "10h-20h", "3", "price: 21$"));
-                        listProducts.add(new HomeProductModel(R.drawable.icecream3, "icecream3 ", "10h-20h", "2", "price: 35$"));
-                        listProducts.add(new HomeProductModel(R.drawable.icecream4, "icecream4 ", "10h-20h", "2", "price: 6$"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream2, "icecream2", "10h-20h", "4", "11"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream1, "icecream1 ", "10h-20h", "3", "21"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream3, "icecream3 ", "10h-20h", "2", "35"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream4, "icecream4 ", "10h-20h", "2", "6"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }
                     else if(row_index == 4) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.sandwich1, "sandwich1", "10h-20h", "4", "price: 8$"));
-                        listProducts.add(new HomeProductModel(R.drawable.sandwich2, "sandwich2 ", "10h-20h", "3", "price: 6$"));
-                        listProducts.add(new HomeProductModel(R.drawable.sandwich3, "sandwich3 ", "10h-20h", "2", "price: 30$"));
-                        listProducts.add(new HomeProductModel(R.drawable.sandwich4, "sandwich4 ", "10h-20h", "2", "price: 12$"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich1, "sandwich1", "10h-20h", "4", "8"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich2, "sandwich2 ", "10h-20h", "3", "6"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich3, "sandwich3 ", "10h-20h", "2", "3"));
+                        listProducts.add(new HomeProductModel(R.drawable.sandwich4, "sandwich4 ", "10h-20h", "2", "12"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }

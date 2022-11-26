@@ -13,15 +13,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hkapplication.R;
 import com.example.hkapplication.models.HomeProductModel;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.ViewHolder> {
     Context context;
     ArrayList<HomeProductModel> list;
     BottomSheetDialog bottomSheetDialog;
+    FirebaseAuth auth;
+    FirebaseFirestore db;
+
+    DatabaseReference mDatabase;
 
     public HomeProductAdapter(Context context, ArrayList<HomeProductModel> list) {
         this.context = context;
@@ -48,6 +63,10 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
         holder.price.setText(list.get(position).getPrice());
         holder.time.setText(list.get(position).getTime());
 
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +76,21 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
                 bottomView.findViewById(R.id.bottom_layout_btn).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(context, "add to cart", Toast.LENGTH_SHORT).show();
+
+                        Map<String, Object> cart = new HashMap<>();
+                        cart.put("name", bName);
+                        cart.put("price", bPrice);
+                        cart.put("rating", bRating);
+                        cart.put("img", bImg);
+
+                        db.collection("carts").document(auth.getCurrentUser().getUid())
+                                .collection("currentUser")
+                                .add(cart).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                                        Toast.makeText(context, "add to cart "+bName, Toast.LENGTH_SHORT).show();
+                                    }
+                                });
                         bottomSheetDialog.dismiss();
                     }
                 });
@@ -102,4 +135,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
             price = itemView.findViewById(R.id.text_price);
         }
     }
+
+
+
 }

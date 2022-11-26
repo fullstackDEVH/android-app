@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.hkapplication.MainActivity;
 import com.example.hkapplication.R;
+import com.example.hkapplication.models.UserModel;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -71,7 +72,11 @@ public class LoginActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Login successfully !!", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            intent.putExtra("id", task.getResult().getUser().getUid());
+                            startActivity(intent);
+
+//                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         }else {
                             Toast.makeText(LoginActivity.this, "Error: " + task.getException(), Toast.LENGTH_SHORT).show();
                         }

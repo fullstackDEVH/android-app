@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".ui.cart.MyCartFragment">
+    tools:context=".ui.cart.MyCartFragment"
+    android:id="@+id/constraint_order"
+    >
 
     <TextView
         android:id="@+id/my_cart_txt"
@@ -70,8 +72,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:fontFamily="@font/amita"
-        android:text="180$"
+        android:text="0$"
         android:textSize="24sp"
+        android:id="@+id/cart_total"
 
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -80,7 +83,7 @@
         app:layout_constraintVertical_bias="0.21" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_order"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/btn_bg_design"
