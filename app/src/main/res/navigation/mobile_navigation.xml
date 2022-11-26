@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_daily_meal" />
 
     <fragment
-        android:id="@+id/nav_favourite"
-        android:name="com.example.hkapplication.ui.slideshow.FavouriteFragment"
-        android:label="Favourite"
-        tools:layout="@layout/fragment_favourite" />
+        android:id="@+id/nav_profile"
+        android:name="com.example.hkapplication.ui.profile.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/nav_my_cart"
         android:name="com.example.hkapplication.ui.cart.MyCartFragment"
