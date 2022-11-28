@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     String uidd ;
     Button btn_logout;
     DatabaseReference database;
+    FirebaseAuth auth;
 
 
 
@@ -63,18 +64,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-//        pass data from activity to activity other
-        Intent iin= getIntent();
-        Bundle b = iin.getExtras();
-
-        if(b!=null)
-        {
-            uidd =(String) b.get("id");
-        }
-
         database = FirebaseDatabase.getInstance().getReference();
+        auth = FirebaseAuth.getInstance();
 
-        database.child("User").child(uidd).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        database.child("Users").child(auth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {

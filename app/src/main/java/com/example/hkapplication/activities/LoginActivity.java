@@ -36,7 +36,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         auth = FirebaseAuth.getInstance();
-
         email = findViewById(R.id.text_email);
         password = findViewById(R.id.text_password);
         btn = findViewById(R.id.button_login);
@@ -66,6 +65,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+
         auth.signInWithEmailAndPassword(userEmail, userPassword)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                         if(task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Login successfully !!", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtra("id", task.getResult().getUser().getUid());
+//                            intent.putExtra("id", task.getResult().getUser().getUid());
                             startActivity(intent);
 
 //                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
@@ -82,8 +82,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-    }
-
+     }
 
     public void switchBtn(View v) {
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));

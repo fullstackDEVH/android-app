@@ -83,12 +83,16 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
                         cart.put("rating", bRating);
                         cart.put("img", bImg);
 
-                        db.collection("carts").document(auth.getCurrentUser().getUid())
+                        db.collection("carts").document(auth.getUid())
                                 .collection("currentUser")
                                 .add(cart).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentReference> task) {
-                                        Toast.makeText(context, "add to cart "+bName, Toast.LENGTH_SHORT).show();
+                                        if(task.isSuccessful()) {
+                                            Toast.makeText(context, "add to cart "+bName, Toast.LENGTH_SHORT).show();
+                                        }else {
+                                            Toast.makeText(context, "Error cart :" + task.getException(), Toast.LENGTH_SHORT).show();
+                                        }
                                     }
                                 });
                         bottomSheetDialog.dismiss();

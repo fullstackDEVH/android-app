@@ -23,7 +23,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class ProfileFragment extends Fragment {
     FirebaseAuth auth;
@@ -35,14 +37,14 @@ public class ProfileFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        auth = FirebaseAuth.getInstance();
 
+        auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance().getReference();
         binding = FragmentProfileBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        database = FirebaseDatabase.getInstance().getReference();
 
-        database.child("User").child( auth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            database.child("Users").child( auth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 if (!task.isSuccessful()) {
@@ -51,15 +53,15 @@ public class ProfileFragment extends Fragment {
                 else {
                     UserModel user = task.getResult().getValue(UserModel.class);
 
-                    profileName = root.findViewById(R.id.profile_name);
-                    profileAddress = root.findViewById(R.id.profile_address);
-                    profileEmail = root.findViewById(R.id.profile_email);
-                    profilePhone = root.findViewById(R.id.profile_phone);
+                    profileName = getView().findViewById(R.id.profile_name);
+                    profileAddress = getView().findViewById(R.id.profile_address);
+                    profileEmail = getView().findViewById(R.id.profile_email);
+                    profilePhone = getView().findViewById(R.id.profile_phone);
 
                     profileName.setText(user.getFullName());
-                    profileAddress.setText("quảng ngãi");
+                    profileAddress.setText(user.getAddress());
                     profileEmail.setText(user.getEmail());
-                    profilePhone.setText("0385151122");
+                    profilePhone.setText(user.getPhone());
                 }
             }
         });
@@ -67,10 +69,33 @@ public class ProfileFragment extends Fragment {
         root.findViewById(R.id.profile_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                database.child("User").child(auth.getUid()).child("fullName").setValue(profileName.getText().toString());
-                Toast.makeText(getContext(), "Updating successfully !!", Toast.LENGTH_SHORT).show();
+
+                profileName = getView().findViewById(R.id.profile_name);
+                profileAddress = getView().findViewById(R.id.profile_address);
+//                profileEmail = getView().findViewById(R.id.profile_email);
+                profilePhone = getView().findViewById(R.id.profile_phone);
+
+                  FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+                String studentUser = firebaseAuth.getCurrentUser().getUid();
+
+                final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(studentUser);
+                String replaceName = profileName.getText().toString().trim();
+                String replacePhoneNumber = profilePhone.getText().toString().trim();
+                String replaceAddress = profileAddress.getText().toString().trim();
+
+                Map<String, Object> updates = new HashMap<>();
+                updates.put("fullName", replaceName);
+                updates.put("phone", replacePhoneNumber);
+                updates.put("address", replaceAddress);
+
+                databaseReference.updateChildren(updates);
+
+                Toast.makeText(getContext(), "Changes has been made", Toast.LENGTH_SHORT).show();
+//                database.child("Users").child(auth.getUid()).child("fullName").setValue(profileName.getText().toString());
+
             }
         });
+
 
         return root;
     }
@@ -80,4 +105,6 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
+
 }

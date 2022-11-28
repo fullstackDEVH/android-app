@@ -47,10 +47,10 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         int newIndex= position;
         if(check) {
             ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-            listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 1", "10h-20h", "4", "price: 10"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "price: 20"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "price: 30"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "price: 40"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 1", "10h-20h", "4", "10"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "20"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "30"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "40"));
 
             selectedCategory.callBack(position, listProducts);
             check = false;
@@ -139,5 +139,9 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
             img = itemView.findViewById(R.id.item_img);
             name = itemView.findViewById(R.id.item_text);
         }
+    }
+
+    public void a () {
+
     }
 }

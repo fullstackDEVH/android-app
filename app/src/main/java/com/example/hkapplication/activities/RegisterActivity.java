@@ -73,10 +73,10 @@ public class RegisterActivity extends AppCompatActivity {
                    @Override
                    public void onComplete(@NonNull Task<AuthResult> task) {
                        if(task.isSuccessful()) {
-                           UserModel userModel = new UserModel(userName,userEmail,userPassword);
+                           UserModel userModel = new UserModel(userName,userEmail,userPassword, "", "");
                            String id = task.getResult().getUser().getUid();
 
-                           database.getReference().child("User").child(id).setValue(userModel);
+                           database.getReference().child("Users").child(id).setValue(userModel);
 
                            Toast.makeText(RegisterActivity.this, "Create Successfully, redirect to login !!!", Toast.LENGTH_SHORT).show();
                            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));

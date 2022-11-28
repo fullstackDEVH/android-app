@@ -45,7 +45,11 @@
         android:backgroundTint="#CCCCCC"
         android:drawableLeft="@drawable/ic_baseline_email_2412"
         android:drawablePadding="13dp"
+        android:inputType="none"
 
+        android:textIsSelectable="true"
+
+        android:focusable="false"
         android:hint="Email"
         android:textColor="@color/black"
         android:elevation="30dp"
