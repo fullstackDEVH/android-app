@@ -99,7 +99,21 @@ public class HomeFragment extends Fragment implements SelectedCategory {
         root.findViewById(R.id.img_home_profile).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((AppCompatActivity) getActivity()).getSupportFragmentManager().beginTransaction().replace(R.id.nav_home, new ProfileFragment()).commit();
+                /*database.child("Users").child(auth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DataSnapshot> task) {
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(getContext(), "Err: "+task.getException(), Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            UserModel user = task.getResult().getValue(UserModel.class);
+
+                            textViewUser.setText("hello " + user.getFullName().toLowerCase(Locale.ROOT));
+                            text_name.setText(""+user.getFullName());
+                            text_email.setText(""+user.getEmail());
+                        }
+                    }
+                });*/
             }
         });
 
@@ -112,27 +126,7 @@ public class HomeFragment extends Fragment implements SelectedCategory {
         binding = null;
     }
 
-    @Override
-    public void setMenuVisibility(final boolean visible) {
-        super.setMenuVisibility(visible);
-        if (visible) {
-            database.child("Users").child(auth.getUid()).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DataSnapshot> task) {
-                    if (!task.isSuccessful()) {
-                        Toast.makeText(getContext(), "Err: "+task.getException(), Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        UserModel user = task.getResult().getValue(UserModel.class);
 
-                        textViewUser.setText("hello " + user.getFullName().toLowerCase(Locale.ROOT));
-                        text_name.setText(user.getFullName());
-                        text_email.setText(user.getEmail());
-                    }
-                }
-            });
-        }
-    }
 
     @Override
     public void callBack(int index, ArrayList<HomeProductModel> list) {

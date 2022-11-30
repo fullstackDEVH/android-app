@@ -47,10 +47,13 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
         int newIndex= position;
         if(check) {
             ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-            listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 1", "10h-20h", "4", "10"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "20"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "30"));
-            listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "40"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza_seafood, "Pizza Seafood", "10h-20h", "4", "10"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza Sausage 1", "10h-19h", "3", "20"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza vegetarian", "10h-20h", "2", "30"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza Pepperonis", "10h-20h", "2", "40"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza_sausage, "Pizza Sausage 2", "10h-20h", "2", "40"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza Margherita", "10h-20h", "2", "40"));
+            listProducts.add(new HomeProductModel(R.drawable.pizza_hawaii, "Pizza Hawaii", "10h-18h", "2", "40"));
 
             selectedCategory.callBack(position, listProducts);
             check = false;
@@ -65,34 +68,40 @@ public class HomeCategoryAdapter extends RecyclerView.Adapter<HomeCategoryAdapte
 
                     if (row_index == 0) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.pizza1, "Pizza 12", "10h-20h", "4", "10"));
-                        listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza 2", "10h-20h", "3", "20"));
-                        listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza 3", "10h-20h", "2", "30"));
-                        listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza 4", "10h-20h", "2", "40"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza_seafood, "Pizza Seafood", "10h-20h", "4", "10"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza2, "Pizza Sausage 1", "10h-19h", "3", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza3, "Pizza vegetarian", "10h-20h", "4", "30"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza Pepperonis", "10h-20h", "5", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza_sausage, "Pizza Sausage 2", "10h-20h", "5", "40"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza4, "Pizza Margherita", "10h-20h", "2", "40"));
+                        listProducts.add(new HomeProductModel(R.drawable.pizza_hawaii, "Pizza Hawaii", "10h-18h", "2", "40"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     } else if(row_index == 1) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.burger1, "burger1", "10h-20h", "4", "10"));
-                        listProducts.add(new HomeProductModel(R.drawable.burger2, "burger2", "10h-20h", "3", "20"));
-                        listProducts.add(new HomeProductModel(R.drawable.burger4, "burger4", "10h-20h", "2", "30"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger1, "burger cow 1", "10h-20h", "4", "18"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger2, "burger cheese", "10h-20h", "3", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger4, "burger cow 2", "10h-20h", "4", "15"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger_fish, "burger fish", "10h-20h", "5", "30"));
+                        listProducts.add(new HomeProductModel(R.drawable.burger_chicken, "burger chicken", "10h-20h", "4", "30"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     } else if(row_index == 2) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.fries1, "fries1 1", "10h-20h", "4", "10"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries2, "fries2 21", "10h-20h", "3", "20"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries3, "fries3 33", "10h-20h", "2", "30"));
-                        listProducts.add(new HomeProductModel(R.drawable.fries4, "fries4 4", "10h-20h", "2", "40"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries_avocado, "Avocado fries", "10h-20h", "5", "30"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries1, "fries type 1", "10h-20h", "4", "14"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries2, "fries type 2", "10h-20h", "3", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries3, "fries type 3", "10h-20h", "2", "30"));
+                        listProducts.add(new HomeProductModel(R.drawable.fries4, "fries type 4", "10h-20h", "4", "33"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }
                     else if(row_index == 3) {
                         ArrayList<HomeProductModel> listProducts = new ArrayList<>();
-                        listProducts.add(new HomeProductModel(R.drawable.icecream2, "icecream2", "10h-20h", "4", "11"));
-                        listProducts.add(new HomeProductModel(R.drawable.icecream1, "icecream1 ", "10h-20h", "3", "21"));
-                        listProducts.add(new HomeProductModel(R.drawable.icecream3, "icecream3 ", "10h-20h", "2", "35"));
-                        listProducts.add(new HomeProductModel(R.drawable.icecream4, "icecream4 ", "10h-20h", "2", "6"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream2, "ice cream type 1", "10h-20h", "4", "11"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream1, "ice cream type 2 ", "10h-20h", "3", "18"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream3, "ice cream type 3 ", "10h-20h", "2", "20"));
+                        listProducts.add(new HomeProductModel(R.drawable.icecream4, "ice cream type 4 ", "10h-20h", "2", "10"));
 
                         selectedCategory.callBack(newIndex, listProducts);
                     }

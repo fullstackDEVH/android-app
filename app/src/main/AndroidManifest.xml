@@ -17,7 +17,7 @@
 
         <activity
             android:name=".activities.WellcomeActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,20 +25,19 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activities.DetailDailyMealActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="My Food App"
-            android:theme="@style/Theme.HKApplication.NoActionBar">
-
-
-        </activity>
+            android:theme="@style/Theme.HKApplication.NoActionBar"></activity>
         <activity
             android:name=".activities.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".activities.LoginActivity"
             android:exported="false" />
-
 
         <meta-data
             android:name="preloaded_fonts"

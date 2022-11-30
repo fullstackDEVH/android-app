@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
                     textViewUser = findViewById(R.id.textView_user);
 
                     textViewUser.setText("hello " + user.getFullName().toLowerCase(Locale.ROOT));
-                    text_name.setText(user.getFullName());
-                    text_email.setText(user.getEmail());
+                    text_name.setText(""+user.getFullName());
+                    text_email.setText(""+user.getEmail());
                 }
             }
         });

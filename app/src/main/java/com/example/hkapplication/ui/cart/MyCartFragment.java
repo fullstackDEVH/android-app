@@ -98,9 +98,16 @@ public class MyCartFragment extends Fragment {
         view.findViewById(R.id.button_order).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(), "order", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "ordering successfully !!!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        /*getView().findViewById(R.id.img_cart_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getContext(), "lô !!!", Toast.LENGTH_SHORT).show();
+            }
+        });*/
         return view;
     }
 
