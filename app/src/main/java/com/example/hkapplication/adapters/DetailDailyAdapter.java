@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -60,11 +61,32 @@ public class DetailDailyAdapter extends RecyclerView.Adapter<DetailDailyAdapter.
         String bPrice = list.get(position).getPrice();
         String bDesc = list.get(position).getDesc();
         int bImg = list.get(position).getImg();
+
+        auth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
         
         holder.itemView.findViewById(R.id.daily_detail_btn_add).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Map<String, Object> cart = new HashMap<>();
+                cart.put("name", bName);
+                cart.put("price", bPrice);
+                cart.put("rating", bRating);
+                cart.put("img", bImg);
 
+                db.collection("carts").document(auth.getUid())
+                        .collection("currentUser")
+                        .add(cart).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                if(task.isSuccessful()) {
+                                    Toast.makeText(view.getContext(), "add to cart "+bName, Toast.LENGTH_SHORT).show();
+                                }else {
+                                    Toast.makeText(view.getContext(), "Error cart :" + task.getException(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
         });
 
@@ -78,24 +100,7 @@ public class DetailDailyAdapter extends RecyclerView.Adapter<DetailDailyAdapter.
                     @Override
                     public void onClick(View view) {
 
-                       Map<String, Object> cart = new HashMap<>();
-                        cart.put("name", bName);
-                        cart.put("price", bPrice);
-                        cart.put("rating", bRating);
-                        cart.put("img", bImg);
 
-                        db.collection("carts").document(auth.getUid())
-                                .collection("currentUser")
-                                .add(cart).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                                        if(task.isSuccessful()) {
-                                            Toast.makeText(view.getContext(), "add to cart "+bName, Toast.LENGTH_SHORT).show();
-                                        }else {
-                                            Toast.makeText(view.getContext(), "Error cart :" + task.getException(), Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                });
                         bottomSheetDialog.dismiss();
                     }
                 });

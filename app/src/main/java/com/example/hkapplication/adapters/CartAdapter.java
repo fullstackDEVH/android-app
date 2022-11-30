@@ -19,6 +19,7 @@ import com.example.hkapplication.R;
 import java.util.List;
 
 import android.content.Context;
+import android.widget.Toast;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     List<CartModel> list ;
@@ -54,6 +55,15 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         intent.putExtra("totalAmount", total);
         LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+
+        int newPo = position;
+
+        holder.itemView.findViewById(R.id.img_cart_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(context, "delete item " +list.get(newPo).getName(), Toast.LENGTH_SHORT).show();
+            };
+        });
     }
 
     @Override
@@ -73,5 +83,9 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
             price = itemView.findViewById(R.id.cart_item_price);
 
         }
+    }
+
+    public void delete (){
+
     }
 }
